@@ -31,7 +31,6 @@ const EditComponent = () => {
     // eslint-disable-next-line
   }, [slug]);
 
-  //กำหนดค่า state
   const inputValue = (name) => (event) => {
     // console.log(name, "=", event.target.value);
     setState({ ...state, [name]: event.target.value });
@@ -66,7 +65,7 @@ const EditComponent = () => {
   };
 
   const showUpdateForm = () => (
-    <form onSubmit={submitForm}>
+    <form className="d-flex flex-column gap-2" onSubmit={submitForm}>
       <div className="form-group">
         <label>ชื่อบทความ</label>
         <input
@@ -78,17 +77,20 @@ const EditComponent = () => {
       </div>
       <div className="form-group">
         <label>รายละเอียด</label>
-        <ReactQuill
-          theme="snow"
-          value={content}
-          onChange={submitContent}
-          className="pb-3 border rounded"
-        />
+        <div className="bg-white text-dark">
+          <ReactQuill
+            theme="snow"
+            value={content}
+            onChange={submitContent}
+            className="pb-3 border rounded"
+          />
+        </div>
       </div>
       <div className="form-group">
         <label>ชื่อผู้แต่ง</label>
         <input
           type="text"
+          z
           className="form-control"
           value={author}
           onChange={inputValue("author")}
@@ -102,9 +104,13 @@ const EditComponent = () => {
   return (
     <div className="container p-5">
       <NavbarComponent />
-      <div className="pt-2 pb-2">
-        <h1>แก้ไขบทความ</h1>
-        {showUpdateForm()}
+      <div className="mt-3">
+        <div className="card shadow-sm custom-card-single">
+          <div className="card-body">
+            <h1>แก้ไขบทความ</h1>
+            {showUpdateForm()}
+          </div>
+        </div>
       </div>
     </div>
   );

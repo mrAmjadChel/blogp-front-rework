@@ -3,7 +3,7 @@ import { logout } from "../service/authorize";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const NavbarComponent = ( ) => {
+const NavbarComponent = () => {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -13,36 +13,111 @@ const NavbarComponent = ( ) => {
     navigate("/");
   };
   return (
-    <nav>
-      <ul className="nav nav-tabs">
-        <li className="nav-item pr-3 pt-3 pb-3">
-          <Link to="/" className="nav-link">
-            หน้าแรก
-          </Link>
-        </li>
-        {!user && (
-          <li className="nav-item pr-3 pt-3 pb-3">
-            <Link to="/login" className="nav-link">
-              เข้าสู่ระบบ
-            </Link>
-          </li>
-        )}
-        {user && (
-          <>
-            <li className="nav-item pr-3 pt-3 pb-3">
-              <Link to="/create" className="nav-link">
-                เขียนบทความ
+    <nav className="navbar navbar-expand-lg navbar-light bg-light rounded navbar-dark bg-dark">
+      <div className="container-fluid px-4">
+        {/* logo */}
+        <Link className="navbar-brand" to="/">
+          <img
+            src="/BP-logo.png"
+            alt="logo"
+            width="40"
+            height="40"
+            className="d-inline-block align-top me-2"
+          />
+        </Link>
+
+        {/* Hamburger */}
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* ลิงก์ Navbar */}
+        <div className="collapse navbar-collapse" id="navbarNav">
+          {/* ลิงก์ด้านซ้าย */}
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">
+                หน้าแรก
               </Link>
             </li>
-            <li className="nav-item pr-3 pt-3 pb-3">
-              <button className="nav-link" onClick={handleLogout}>
-                ออกจากระบบ
-              </button>
-            </li>
-          </>
-        )}
-      </ul>
+            {user && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/create">
+                  เขียนบทความ
+                </Link>
+              </li>
+            )}
+          </ul>
+
+          {/* ลิงก์ด้านขวา */}
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            {!user && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  เข้าสู่ระบบ
+                </Link>
+              </li>
+            )}
+            {user && (
+              <li className="nav-item">
+                <button
+                  className="nav-link btn btn-link"
+                  style={{ cursor: "pointer" }}
+                  onClick={handleLogout}
+                >
+                  ออกจากระบบ
+                </button>
+              </li>
+            )}
+          </ul>
+        </div>
+      </div>
     </nav>
+    // <nav>
+    //   <ul className="nav nav-tabs d-flex">
+    //     {/* left */}
+    //     <div className="d-flex">
+    //       <li className="nav-item pr-3 pt-3 pb-3">
+    //         <Link to="/" className="nav-link">
+    //           หน้าแรก
+    //         </Link>
+    //       </li>
+    //       {user && (
+    //         <li className="nav-item pr-3 pt-3 pb-3">
+    //           <Link to="/create" className="nav-link">
+    //             เขียนบทความ
+    //           </Link>
+    //         </li>
+    //       )}
+    //     </div>
+
+    //     {/* right */}
+    //     <div className="ms-auto d-flex">
+    //       {!user && (
+    //         <li className="nav-item pr-3 pt-3 pb-3">
+    //           <Link to="/login" className="nav-link">
+    //             เข้าสู่ระบบ
+    //           </Link>
+    //         </li>
+    //       )}
+    //       {user && (
+    //         <li className="nav-item pr-3 pt-3 pb-3">
+    //           <button className="nav-link btn btn-link" onClick={handleLogout}>
+    //             ออกจากระบบ
+    //           </button>
+    //         </li>
+    //       )}
+    //     </div>
+    //   </ul>
+    // </nav>
   );
 };
 

@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+body {
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  background-color: #101018; /* dark background */
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Card หลัก */
+.custom-card {
+  background-color: rgba(16, 16, 24, 0.85);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.custom-card-single {
+  background-color: rgba(16, 16, 24, 0.85);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.custom-card-login {
+  background-color: rgba(16, 16, 24, 0.244);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+/* หัวข้อ */
+h1, .blog-title {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+/* ขนาดตัวหนังสือ blog */
+.blog-title {
+  font-size: 1.4rem; /* mobile */
+  font-weight: 700;
+}
+
+.blog-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.author-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.author-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Avatar ผู้เขียน */
+.author-avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #eee;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0.5rem;
+}
+
+.btn-login {
+  background: linear-gradient(135deg, #4f46e5, #3730a3); /* Gradient สีฟ้าเข้ม */
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(210, 167, 236, 0.2);
+  width: 100%;
+}
+
+.btn-login:hover {
+  background: linear-gradient(135deg, #3730a3, #4f46e5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(103, 102, 102, 0.3); 
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+
+
+/* Responsive ตัวอักษร */
+@media (min-width: 576px) {
+  .blog-title {
+    font-size: 1.6rem;
+  }
+  .blog-content {
+    font-size: 1rem;
+  }
+  .author-text {
+    font-size: 0.95rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 768px) {
+  .blog-title {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .blog-content {
+    font-size: 1.1rem;
+  }
+  .author-text {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .blog-title {
+    font-size: 2.2rem;
+  }
+  .blog-content {
+    font-size: 1.15rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .blog-title {
+    font-size: 2.5rem;
+  }
+  .blog-content {
+    font-size: 1.2rem;
   }
 }

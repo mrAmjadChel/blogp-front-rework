@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import NavbarComponent from "./NavbarComponent";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { authenicate } from "../service/authorize";
@@ -7,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { getUser } from "../service/authorize";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 const LoginComponent = () => {
   const { setUser } = useContext(UserContext);
@@ -32,9 +34,6 @@ const LoginComponent = () => {
     await axios
       .post(`${process.env.REACT_APP_API}/login`, { username, password })
       .then((response) => {
-        // authenicate(response, () => {
-        //   navigate("/create");
-        // });
         authenicate(response);
         setUser(response.data.username);
         navigate("/create");
@@ -46,35 +45,46 @@ const LoginComponent = () => {
   };
 
   return (
-    <div className="container p-5">
-      <NavbarComponent />
-      <div className="pt-2 pb-2">
-        <h1 className="mb-2">เข้าสู่ระบบ | Admin</h1>
-        <form className="d-flex flex-column gap-2" onSubmit={submitForm}>
-          <div className="form-group">
-            <label>Username</label>
-            <input
-              type="text"
-              className="form-control"
-              value={username}
-              onChange={inputValue("username")}
-            />
+    <div className="container mt-5 p-5">
+      <div className="row d-flex justify-content-center align-items-center">
+        <div className="col-12 col-sm-8 col-md-6 col-lg-4 m-4">
+          <div className="card shadow-sm custom-card-login">
+            <div className="card-body d-flex flex-column p-0">
+              <div className="mb-4 d-flex justify-content-start">
+                <Link
+                  to="/"
+                  className="text-decoration-none d-flex align-items-center gap-1 text-white"
+                >
+                  <FontAwesomeIcon icon={faHouse} />
+                  <span>หน้าหลัก</span>
+                </Link>
+              </div>
+              <div className="text-center mb-4">
+                <img src="/101.jpg" alt="Admin" className="author-avatar" />
+              </div>
+              <h3 className="text-center mb-4">เข้าสู่ระบบ | Admin</h3>
+              <form className="d-flex flex-column gap-3" onSubmit={submitForm}>
+                <input
+                  type="text"
+                  className="form-control mb-2"
+                  value={username}
+                  onChange={inputValue("username")}
+                  placeholder="Username"
+                />
+                <input
+                  type="password"
+                  className="form-control mb-3"
+                  value={password}
+                  onChange={inputValue("password")}
+                  placeholder="Password"
+                />
+                <button type="submit" className="btn-login">
+                  เข้าสู่ระบบ
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              value={password}
-              onChange={inputValue("password")}
-            />
-          </div>
-          <input
-            type="submit"
-            value="เข้าสู่ระบบ"
-            className="btn btn-primary"
-          />
-        </form>
+        </div>
       </div>
     </div>
   );

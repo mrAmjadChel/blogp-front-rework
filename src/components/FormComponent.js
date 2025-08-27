@@ -14,7 +14,7 @@ const FormComponent = () => {
     title: "",
     author: user || "",
   });
-  const { title, author } = state; //destructure
+  const { title, author } = state;
 
   const [content, setContent] = useState("");
 
@@ -50,41 +50,46 @@ const FormComponent = () => {
   return (
     <div className="container p-5">
       <NavbarComponent />
-      <div className="pt-2 pb-2">
-        <h1 className="mb-2">เขียนบทความ</h1>
-        {/* {JSON.stringify(state)} */}
-        <form className="d-flex flex-column gap-2" onSubmit={submitForm}>
-          <div className="form-group">
-            <label>ชื่อบทความ</label>
-            <input
-              type="text"
-              className="form-control"
-              value={title}
-              onChange={inputValue("title")}
-            />
+      <div className="mt-3">
+        <div className="card shadow-sm custom-card-single">
+          <div className="card-body">
+            <h1 className="mb-2">เขียนบทความ</h1>
+            <form className="d-flex flex-column gap-2" onSubmit={submitForm}>
+              <div className="form-group">
+                <label>ชื่อบทความ</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={title}
+                  onChange={inputValue("title")}
+                />
+              </div>
+              <div className="form-group">
+                <label>รายละเอียด</label>
+                <div className="bg-white text-dark">
+                  <ReactQuill
+                    theme="snow"
+                    value={content}
+                    onChange={submitContent}
+                    placeholder="เขียนรายละเอียดบทความ"
+                    className="pb-3 border rounded"
+                  />
+                </div>
+              </div>
+              <div className="form-group">
+                <label>ชื่อผู้แต่ง</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={author}
+                  onChange={inputValue("author")}
+                />
+              </div>
+              <br />
+              <input type="submit" value="บันทึก" className="btn btn-primary" />
+            </form>
           </div>
-          <div className="form-group">
-            <label>รายละเอียด</label>
-            <ReactQuill
-              theme="snow"
-              value={content}
-              onChange={submitContent}
-              placeholder="เขียนรายละเอียดบทความ"
-              className="pb-3 border rounded"
-            />
-          </div>
-          <div className="form-group">
-            <label>ชื่อผู้แต่ง</label>
-            <input
-              type="text"
-              className="form-control"
-              value={author}
-              onChange={inputValue("author")}
-            />
-          </div>
-          <br />
-          <input type="submit" value="บันทึก" className="btn btn-primary" />
-        </form>
+        </div>
       </div>
     </div>
   );

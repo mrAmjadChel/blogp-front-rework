@@ -23,15 +23,47 @@ const SingleComponent = () => {
   return (
     <div className="container p-5">
       <NavbarComponent />
-      <div className="pt-2 pb-2">
+      <div className="mt-3">
         {blog && (
-          <div>
-            <h1>{blog.title}</h1>
-            <div>{parse(blog.content)}</div>
-            <p className="text-muted">
-              ผู้เขียน: {blog.author} , เผยแพร่:{" "}
-              {new Date(blog.createdAt).toLocaleString()}
-            </p>
+          <div className="row g-4">
+            {/* content */}
+            <div className="col-12 col-md-8">
+              <div className="card shadow-sm custom-card-single h-100">
+                <div className="card-body">
+                  <h1 className="blog-title">{blog.title}</h1>
+                  <hr />
+                  <div className="blog-content">{parse(blog.content)}</div>
+                </div>
+              </div>
+            </div>
+
+            {/* author info */}
+            <div className="col-12 col-md-4">
+              <div className="card shadow-sm custom-card-single h-100 text-center">
+                <div className="card-body">
+                  <img
+                    src={
+                      ["admin", "Admin", "aim1808"].includes(blog.author)
+                        ? "/default-avatar.jpg"
+                        : "/101.jpg"
+                    }
+                    alt={blog.author}
+                    className="author-avatar mb-3"
+                  />
+                  <h6 className="author-title">ข้อมูลผู้เขียน</h6>
+                  <hr />
+                  <p className="author-text">ผู้เขียน: {blog.author}</p>
+                  <p className="author-text">
+                    เผยแพร่: {new Date(blog.createdAt).toLocaleString()}
+                  </p>
+                  {blog.updatedAt !== blog.createdAt && (
+                    <p className="author-text">
+                      แก้ไขล่าสุด: {new Date(blog.updatedAt).toLocaleString()}
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </div>
