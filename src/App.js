@@ -67,9 +67,13 @@ function App() {
     <div className="container p-5">
       <NavbarComponent />
 
-      <div className="d-flex justify-content-between align-items-center">
-        <SearchBar onSearch={handleSearch} keyword={search} />
-        <SortDropdown sort={sort} lang={lang} onChange={handleSortChange} />
+      <div className="row align-items-center">
+        <div className="col-12 col-md-6">
+          <SearchBar onSearch={handleSearch} keyword={search} />
+        </div>
+        <div className="col-12 col-md-6 d-flex justify-content-end">
+          <SortDropdown sort={sort} lang={lang} onChange={handleSortChange} />
+        </div>
       </div>
 
       <div className="row g-4 mt-1">

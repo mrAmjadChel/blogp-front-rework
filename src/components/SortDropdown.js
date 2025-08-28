@@ -58,8 +58,8 @@ function SortDropdown({ sort, lang, onChange }) {
   };
 
   return (
-    <div className="d-flex justify-content-end">
-      <div className="dropdown mt-2">
+    <div className="d-flex justify-content-end my-3">
+      <div className="dropdown">
         <button
           className="btn btn-dark dropdown-toggle"
           type="button"

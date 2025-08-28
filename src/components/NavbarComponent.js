@@ -39,9 +39,9 @@ const NavbarComponent = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        {/* ลิงก์ Navbar */}
+        {/* link */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          {/* ลิงก์ด้านซ้าย */}
+          {/* left */}
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <Link className="nav-link" to="/">
@@ -57,7 +57,7 @@ const NavbarComponent = () => {
             )}
           </ul>
 
-          {/* ลิงก์ด้านขวา */}
+          {/* right */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             {!user && (
               <li className="nav-item">

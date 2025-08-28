@@ -14,7 +14,7 @@ function SearchBar({ onSearch, keyword }) {
   };
 
   return (
-    <div className="container my-3">
+    <div className="container my-3 p-0">
       <form onSubmit={handleSubmit} className="search-bar">
         <input
           type="text"
