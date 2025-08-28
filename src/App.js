@@ -66,7 +66,6 @@ function App() {
   return (
     <div className="container p-5">
       <NavbarComponent />
-
       <div className="row align-items-center">
         <div className="col-12 col-md-6">
           <SearchBar onSearch={handleSearch} keyword={search} />
@@ -81,7 +80,7 @@ function App() {
           <p className="text-center">ยังไม่มีบทความ</p>
         ) : (
           blogs.map((b) => (
-            <div key={b._id} className="col-12 col-sm-6 col-md-4">
+            <div key={b._id} className="col-12 col-sm-6 col-lg-4">
               <BlogCard blog={b} user={user} fetchBlogs={fetchBlogs} />
             </div>
           ))
