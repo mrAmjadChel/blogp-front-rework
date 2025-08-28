@@ -81,43 +81,6 @@ const NavbarComponent = () => {
         </div>
       </div>
     </nav>
-    // <nav>
-    //   <ul className="nav nav-tabs d-flex">
-    //     {/* left */}
-    //     <div className="d-flex">
-    //       <li className="nav-item pr-3 pt-3 pb-3">
-    //         <Link to="/" className="nav-link">
-    //           หน้าแรก
-    //         </Link>
-    //       </li>
-    //       {user && (
-    //         <li className="nav-item pr-3 pt-3 pb-3">
-    //           <Link to="/create" className="nav-link">
-    //             เขียนบทความ
-    //           </Link>
-    //         </li>
-    //       )}
-    //     </div>
-
-    //     {/* right */}
-    //     <div className="ms-auto d-flex">
-    //       {!user && (
-    //         <li className="nav-item pr-3 pt-3 pb-3">
-    //           <Link to="/login" className="nav-link">
-    //             เข้าสู่ระบบ
-    //           </Link>
-    //         </li>
-    //       )}
-    //       {user && (
-    //         <li className="nav-item pr-3 pt-3 pb-3">
-    //           <button className="nav-link btn btn-link" onClick={handleLogout}>
-    //             ออกจากระบบ
-    //           </button>
-    //         </li>
-    //       )}
-    //     </div>
-    //   </ul>
-    // </nav>
   );
 };
 

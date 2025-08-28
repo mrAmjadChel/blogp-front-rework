@@ -6,6 +6,30 @@ body {
   padding: 0;
 }
 
+.navbar-brand {
+  cursor: pointer;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+}
+
+.search-bar input {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: inset 0 1px 3px rgba(196, 78, 196, 0.323);
+}
+
+.search-bar button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
 /* Card หลัก */
 .custom-card {
   background-color: rgba(16, 16, 24, 0.85);
@@ -35,7 +59,7 @@ body {
 }
 
 /* หัวข้อ */
-h1, .blog-title {
+.blog-title {
   color: #ffffff;
   font-weight: 700;
   margin-bottom: 0.75rem;
@@ -76,7 +100,11 @@ h1, .blog-title {
 }
 
 .btn-login {
-  background: linear-gradient(135deg, #4f46e5, #3730a3); /* Gradient สีฟ้าเข้ม */
+  background: linear-gradient(
+    135deg,
+    #4f46e5,
+    #3730a3
+  ); /* Gradient สีฟ้าเข้ม */
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -90,15 +118,13 @@ h1, .blog-title {
 .btn-login:hover {
   background: linear-gradient(135deg, #3730a3, #4f46e5);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(103, 102, 102, 0.3); 
+  box-shadow: 0 6px 12px rgba(103, 102, 102, 0.3);
 }
 
 .btn-login:active {
   transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
-
 
 /* Responsive ตัวอักษร */
 @media (min-width: 576px) {
